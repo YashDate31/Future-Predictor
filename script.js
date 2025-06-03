@@ -12,16 +12,14 @@ function formatDate(date) {
 }
 
 const jobs = [
-  "Software Engineer", "Data Scientist", "Graphic Designer", "Cybersecurity Analyst", "Digital Marketer",
-  "AI Specialist", "Content Creator", "UX Designer", "Cloud Engineer", "Robotics Technician",
-  "Blockchain Developer", "Game Developer", "Virtual Reality Designer", "Mobile App Developer",
-  "Social Media Manager", "SEO Expert", "Product Manager", "Biomedical Engineer", "Astronomer",
-  "Renewable Energy Technician", "Environmental Scientist", "Financial Analyst", "Urban Planner",
-  "Architect", "Mechanical Engineer", "Civil Engineer", "Teacher", "Doctor", "Nurse", "Pharmacist",
-  "Psychologist", "Veterinarian", "Chef", "Pilot", "Police Officer", "Firefighter", "Journalist",
-  "Translator", "Lawyer", "Judge", "Forensic Scientist", "Detective",
-  "Paranormal Investigator", "Crypt Keeper", "Ghost Hunter", "Necromancer", "Doomsday Prepper",
-  "Haunted House Caretaker", "Occult Researcher", "Vampire Hunter", "Witch Doctor", "Cursed Relic Curator"
+  "Software Engineer", "Data Scientist", "AI Specialist", "Machine Learning Engineer", "Cloud Engineer",
+  "Cybersecurity Analyst", "Blockchain Developer", "DevOps Engineer", "Full Stack Developer", "Game Developer",
+  "Mobile App Developer", "Robotics Engineer", "IoT Specialist", "Big Data Analyst", "Quantum Computing Researcher",
+  "AR/VR Developer", "Digital Twin Engineer", "Autonomous Vehicle Engineer", "Bioinformatics Specialist",
+  "AI Ethics Consultant", "Natural Language Processing Engineer", "Computer Vision Engineer",
+  "Embedded Systems Developer", "Edge Computing Specialist", "AI Product Manager", "Data Engineer",
+  "AI Research Scientist", "Algorithm Developer", "Cloud Solutions Architect", "IT Systems Architect",
+  "AI Trainer", "AI Operations Specialist", "AI Model Validator", "AI Deployment Engineer"
 ];
 
 const femaleSpouses = [
@@ -189,7 +187,7 @@ function generateFuturePredictionLines(name, dob, gender) {
   }
 
   const spouse = gender === "male" ? randomChoice(femaleSpouses) : randomChoice(maleSpouses);
-  const numChildren = randomInt(1, 2);
+  const numChildren = randomInt(1,3);
   const childrenNames = [];
   for (let i = 0; i < numChildren; i++) {
     childrenNames.push(randomChoice(children));
