@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Time Machine Simulator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div id="glitch-background" aria-hidden="true"></div>
+
+  <div class="container" role="main" aria-label="Time Machine Simulator Container">
+    <h1 class="title" data-text="TIME MACHINE SIMULATOR">
+      TIME MACHINE SIMULATOR
+      <span class="glitch-layer" aria-hidden="true">TIME MACHINE SIMULATOR</span>
+      <span class="glitch-layer" aria-hidden="true">TIME MACHINE SIMULATOR</span>
+    </h1>
+    <div class="horror-section">
+      <p class="horror-experience"><b><h3>  This are some horror-experience of  peoples after seeing future:</h2></b></p>
+      <p class="horror-experience">"I saw myself in the mirror, but it wasn’t me—it was a twisted version of my soul."</p>
+      <p class="horror-experience">"The whispers of the future still echo in my ears, warning me of shadows yet to come."</p>
+      <p class="horror-experience">"Every tick of the clock felt like a dagger piercing through my sanity."</p>
+      <p class="glitch-hint" aria-hidden="true">You feel watched...</p>
+    </div>
+    <div class="tagline">See your future... and regret your past.</div>
+
+    <div id="homepageHorror" aria-live="polite" role="region" aria-label="Horror slogans and eerie sentences on homepage">
+      <div id="homepageSlogan"></div>
+      <div id="homepageSentence"></div>
+    </div>
+
+    <form id="form" aria-label="Time machine input form">
+      <input type="text" id="name" placeholder="Enter your name" aria-required="true" aria-label="Your name" required />
+      <input type="date" id="dob" aria-required="true" aria-label="Your date of birth" required />
+      
+      <label><input type="radio" name="gender" value="male" required aria-checked="false" /> Male</label>
+      <label><input type="radio" name="gender" value="female" aria-checked="false" /> Female</label>
+      
+      <button type="submit" aria-label="Start time travel simulation">Start Time Travel</button>
+    </form>
+    
+    <div id="output" aria-live="polite" role="region" aria-label="Future prediction output"></div>
+    <div id="disclaimer">This website is made for fun and entertainment purposes only. Do not take it seriously.</div>
+
+    <button onclick="location.href='shareexperi.html'" style="padding: 10px; border: none; border-radius: 5px; background-color: #ff4c4c; color: #fff; font-size: 1.2rem; cursor: pointer; margin-top: 20px;">Share Your Experience</button>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

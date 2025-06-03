@@ -1,0 +1,208 @@
+body {
+  background: #0a0a0a;
+  color: #f0f0f0;
+  font-family: 'Share Tech Mono', monospace;
+  padding: 20px;
+  min-height: 100vh;
+  display: block;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+h1.title {
+  font-size: 2.8rem;
+  text-align: center;
+  margin-bottom: 10px;
+  color: #ff2222;
+  text-shadow: 0 0 5px #ff2222aa, 0 0 10px #ff2222bb;
+  user-select: none;
+  position: relative;
+  animation: glitch 2s infinite;
+}
+
+@keyframes glitch {
+  0% {
+    text-shadow: 2px 0 red, -2px 0 blue;
+  }
+  20% {
+    text-shadow: -2px -2px red, 2px 2px blue;
+  }
+  40% {
+    text-shadow: 2px 2px red, -2px -2px blue;
+  }
+  60% {
+    text-shadow: -1px 0 red, 1px 0 blue;
+  }
+  80% {
+    text-shadow: 2px -2px red, -2px 2px blue;
+  }
+  100% {
+    text-shadow: 0 0 5px #ff2222aa, 0 0 10px #ff2222bb;
+  }
+}
+
+.tagline {
+  text-align: center;
+  font-size: 1.3rem;
+  margin-bottom: 30px;
+  color: #cc4444;
+  font-style: italic;
+  user-select: none;
+  animation: flicker 3s infinite alternate;
+}
+
+@keyframes flicker {
+  0% { opacity: 1; }
+  100% { opacity: 0.7; }
+}
+
+#homepageHorror {
+  margin-bottom: 25px;
+  text-align: center;
+  user-select: none;
+  color: #ff6666;
+  font-style: italic;
+  font-weight: 700;
+}
+
+#homepageHorror #homepageSentence {
+  margin-top: 8px;
+  font-size: 1.1rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+input[type="text"],
+input[type="date"] {
+  padding: 12px 15px;
+  border-radius: 6px;
+  border: 2px solid #ff4444;
+  background: #1c1c1c;
+  color: #fff;
+  font-size: 1.1rem;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus {
+  border-color: #ff7777;
+  outline: none;
+}
+
+label {
+  color: #ff6666;
+  font-weight: 600;
+  user-select: none;
+}
+
+input[type="radio"] {
+  margin-right: 8px;
+  accent-color: #ff4444;
+  cursor: pointer;
+}
+
+button {
+  padding: 14px 0;
+  border-radius: 8px;
+  border: none;
+  background: #ff2222;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  user-select: none;
+}
+
+button:hover {
+  background: #ff5555;
+}
+
+#output {
+  background: #220000cc;
+  padding: 25px 20px;
+  border-radius: 10px;
+  min-height: 170px;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  white-space: pre-line;
+  color: #ffdddd;
+  user-select: text;
+  border: 2px solid #ff5555;
+  box-shadow: 0 0 10px #ff5555;
+  animation: glitchBox 3s infinite alternate;
+}
+
+@keyframes glitchBox {
+  0% {
+    transform: skew(-1deg);
+    opacity: 0.98;
+  }
+  50% {
+    transform: skew(1deg);
+    opacity: 1;
+  }
+  100% {
+    transform: skew(-1deg);
+    opacity: 0.97;
+  }
+}
+
+#output em {
+  color: #ffaaaa;
+  font-weight: 700;
+}
+
+#output strong {
+  color: #ff5555;
+}
+
+#disclaimer {
+  margin-top: 40px;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: #aa4444;
+  text-align: center;
+  user-select: none;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0.7;
+}
+
+.horror-section {
+  background-color: black;
+  color: red;
+  font-family: 'Creepster', cursive;
+  padding: 20px;
+  border: 2px solid darkred;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+.horror-section ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.horror-section li {
+  margin: 10px 0;
+  text-shadow: 2px 2px 5px darkred;
+}
+
+.horror-experience {
+  font-style: italic;
+  color: crimson;
+  margin-top: 10px;
+  text-shadow: 1px 1px 3px black;
+}
