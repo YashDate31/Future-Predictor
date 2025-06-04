@@ -108,8 +108,21 @@ function generateFuturePrediction(name, dob, gender) {
   const birthDate = new Date(dob);
   const isSingle = Math.random() < 0.2;
   const deathAge = randomInt(50, 90);
+  
+  // Generate death date with different day and month than birth date
   const deathDate = new Date(birthDate);
   deathDate.setFullYear(deathDate.getFullYear() + deathAge);
+  
+  // Ensure different month and day
+  let newMonth, newDay;
+  do {
+    newMonth = randomInt(0, 11); // 0-11 for months
+    newDay = randomInt(1, 28); // 1-28 to avoid month-end issues
+  } while (newMonth === birthDate.getMonth() && newDay === birthDate.getDate());
+  
+  deathDate.setMonth(newMonth);
+  deathDate.setDate(newDay);
+  
   const formattedDeathDate = formatDate(deathDate);
   const deathReason = randomChoice(deathReasons);
 
@@ -168,8 +181,21 @@ function generateFuturePredictionLines(name, dob, gender) {
   const birthDate = new Date(dob);
   const isSingle = Math.random() < 0.2;
   const deathAge = randomInt(50, 90);
+  
+  // Generate death date with different day and month than birth date
   const deathDate = new Date(birthDate);
   deathDate.setFullYear(deathDate.getFullYear() + deathAge);
+  
+  // Ensure different month and day
+  let newMonth, newDay;
+  do {
+    newMonth = randomInt(0, 11); // 0-11 for months
+    newDay = randomInt(1, 28); // 1-28 to avoid month-end issues
+  } while (newMonth === birthDate.getMonth() && newDay === birthDate.getDate());
+  
+  deathDate.setMonth(newMonth);
+  deathDate.setDate(newDay);
+  
   const formattedDeathDate = formatDate(deathDate);
   const deathReason = randomChoice(deathReasons);
 
