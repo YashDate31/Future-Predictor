@@ -36,11 +36,16 @@
         <label for="dob">Enter your date of birth:</label>
         <input type="date" id="dob" aria-required="true" required />
       </div>
-      
-      <fieldset class="gender-fieldset">
+        <fieldset class="gender-fieldset">
         <legend>Select your gender:</legend>
         <label><input type="radio" name="gender" value="male" required aria-checked="false" /> Male</label>
         <label><input type="radio" name="gender" value="female" aria-checked="false" /> Female</label>
+      </fieldset>
+
+      <fieldset class="marital-fieldset">
+        <legend>What is your marital status?</legend>
+        <label><input type="radio" name="maritalStatus" value="single" required aria-checked="false" /> Single</label>
+        <label><input type="radio" name="maritalStatus" value="married" aria-checked="false" /> Married</label>
       </fieldset>
       
       <button type="submit" aria-label="Start future prediction">Predict My Future</button>

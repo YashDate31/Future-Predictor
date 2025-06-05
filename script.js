@@ -104,9 +104,9 @@ const deathReasons = [
 ];
 
 
-function generateFuturePrediction(name, dob, gender) {
+function generateFuturePrediction(name, dob, gender, maritalStatus) {
   const birthDate = new Date(dob);
-  const isSingle = Math.random() < 0.2;
+  const isSingle = maritalStatus === "single";
   const deathAge = randomInt(50, 90);
   
   // Generate death date with different day and month than birth date
@@ -126,13 +126,14 @@ function generateFuturePrediction(name, dob, gender) {
   const formattedDeathDate = formatDate(deathDate);
   const deathReason = randomChoice(deathReasons);
 
-  if (isSingle) {
+  if (!isSingle) {
+    // Married - don't show future spouse and children
     const job = randomChoice(jobs);
     return `
       <div style="background:#111; color:#e74c3c; padding:20px; border-radius:15px; font-family:'Share Tech Mono', monospace; line-height:1.5;">
         <h2 style="color:#ff4c4c; text-shadow: 0 0 10px #ff0000;">👁️ YOUR HORROR FUTURE 👁️</h2>
         <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Status:</strong> Forever alone, wandering the shadows.</p>
+        <p><strong>Status:</strong> Already bound by the chains of matrimony.</p>
         <p><strong>Future Job:</strong> ${job}</p>
         <p><strong>Death Date:</strong> ${formattedDeathDate}</p>
         <p><strong>Cause of Death:</strong> ${deathReason}</p>
@@ -140,6 +141,7 @@ function generateFuturePrediction(name, dob, gender) {
     `;
   }
 
+  // Single - show future spouse and children
   const spouse = gender === "male" ? randomChoice(femaleSpouses) : randomChoice(maleSpouses);
   const numChildren = randomInt(1, 5);
   const childrenNames = [];
@@ -167,19 +169,21 @@ document.getElementById("form").addEventListener("submit", (e) => {
   const name = document.getElementById("name").value.trim();
   const dob = document.getElementById("dob").value;
   const genderEl = document.querySelector('input[name="gender"]:checked');
-  if (!name || !dob || !genderEl) {
+  const maritalStatusEl = document.querySelector('input[name="maritalStatus"]:checked');
+  if (!name || !dob || !genderEl || !maritalStatusEl) {
     alert("Please fill in all required fields!");
     return;
   }
   const gender = genderEl.value;
-  const predictionLines = generateFuturePredictionLines(name, dob, gender);
+  const maritalStatus = maritalStatusEl.value;
+  const predictionLines = generateFuturePredictionLines(name, dob, gender, maritalStatus);
   const outputBox = document.getElementById("output");
   outputBox.innerText = predictionLines.join('\n');
 });
 
-function generateFuturePredictionLines(name, dob, gender) {
+function generateFuturePredictionLines(name, dob, gender, maritalStatus) {
   const birthDate = new Date(dob);
-  const isSingle = Math.random() < 0.2;
+  const isSingle = maritalStatus === "single";
   const deathAge = randomInt(50, 90);
   
   // Generate death date with different day and month than birth date
@@ -203,15 +207,17 @@ function generateFuturePredictionLines(name, dob, gender) {
   predictionLines.push(`👁️ YOUR HORROR FUTURE 👁️`);
   predictionLines.push(`Name: ${name}`);
 
-  if (isSingle) {
+  if (!isSingle) {
+    // Married - don't show future spouse and children
     const job = randomChoice(jobs);
-    predictionLines.push(`Status: Forever alone, wandering the shadows.`);
+    predictionLines.push(`Status: Already bound by the chains of matrimony.`);
     predictionLines.push(`Future Job: ${job}`);
     predictionLines.push(`Death Date: ${formattedDeathDate}`);
     predictionLines.push(`Cause of Death: ${deathReason}`);
     return predictionLines;
   }
 
+  // Single - show future spouse and children
   const spouse = gender === "male" ? randomChoice(femaleSpouses) : randomChoice(maleSpouses);
   const numChildren = randomInt(1,3);
   const childrenNames = [];
@@ -220,7 +226,7 @@ function generateFuturePredictionLines(name, dob, gender) {
   }
   const job = randomChoice(jobs);
 
-  predictionLines.push(`Spouse: ${spouse}`);
+  predictionLines.push(`Future Spouse: ${spouse}`);
   predictionLines.push(`Number of Children: ${numChildren}`);
   predictionLines.push(`Children Names: ${childrenNames.join(", ")}`);
   predictionLines.push(`Future Job: ${job}`);
