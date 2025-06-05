@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Future Predictor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+        }
+
+        .about-title {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #ff4444;
+            text-shadow: 0 0 20px rgba(255, 68, 68, 0.5);
+            animation: flicker 2s infinite alternate;
+        }
+
+        @keyframes flicker {
+            0% { opacity: 0.8; }
+            50% { opacity: 1; }
+            100% { opacity: 0.9; }
+        }
+
+        .creator-card {
+            width: 350px;
+            height: 450px;
+            border-radius: 30px;
+            background: linear-gradient(135deg, #1a0505 0%, #0a0a0a 50%, #050a1a 100%);
+            box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.8), 
+                       -15px -15px 30px rgba(60, 60, 60, 0.1),
+                       0 0 50px rgba(255, 34, 34, 0.2);
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 20px auto;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 100, 100, 0.3);
+        }
+
+        .creator-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 20px 20px 40px rgba(0, 0, 0, 0.9), 
+                       -20px -20px 40px rgba(70, 70, 70, 0.2),
+                       0 0 80px rgba(255, 34, 34, 0.4);
+        }
+
+        .creator-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #ff4444, #4444ff, #ff4444);
+            border-radius: 32px;
+            z-index: -1;
+            animation: borderGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes borderGlow {
+            0% { opacity: 0.3; }
+            100% { opacity: 0.8; }
+        }
+
+        .avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff4444, #4444ff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 25px rgba(255, 68, 68, 0.4);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .creator-name {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-align: center;
+            background: linear-gradient(135deg, #ff4444, #4444ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 20px rgba(255, 68, 68, 0.3);
+        }
+
+        .creator-role {
+            font-size: 1.1rem;
+            color: #888;
+            margin-bottom: 25px;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .contact-info {
+            width: 100%;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            padding: 12px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 100, 100, 0.2);
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 68, 68, 0.1);
+            transform: translateX(10px);
+            box-shadow: 0 5px 15px rgba(255, 68, 68, 0.3);
+        }
+
+        .contact-icon {
+            width: 24px;
+            height: 24px;
+            color: #ff4444;
+            flex-shrink: 0;
+        }
+
+        .contact-link {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-link:hover {
+            color: #ff4444;
+            text-shadow: 0 0 10px rgba(255, 68, 68, 0.5);
+        }
+
+        .floating-elements {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .floating-skull {
+            position: absolute;
+            font-size: 2rem;
+            color: rgba(255, 68, 68, 0.2);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-skull:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
+        .floating-skull:nth-child(2) { top: 20%; right: 15%; animation-delay: 1s; }
+        .floating-skull:nth-child(3) { bottom: 20%; left: 20%; animation-delay: 2s; }
+        .floating-skull:nth-child(4) { bottom: 10%; right: 10%; animation-delay: 3s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+
+        .horror-quotes {
+            margin: 50px 0;
+            text-align: center;
+        }
+
+        .horror-quote {
+            font-size: 1.2rem;
+            color: #888;
+            margin: 20px 0;
+            font-style: italic;
+            opacity: 0.8;
+            animation: fadeInOut 4s ease-in-out infinite;
+        }
+
+        .horror-quote:nth-child(2) { animation-delay: 1s; }
+        .horror-quote:nth-child(3) { animation-delay: 2s; }
+
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.8; }
+        }
+
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 68, 68, 0.8);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 15px;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 68, 68, 0.3);
+        }
+
+        .back-button:hover {
+            background: rgba(255, 68, 68, 1);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 68, 68, 0.5);
+        }
+
+        .glitch-text {
+            animation: glitch 2s infinite;
+        }
+
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
+        }
+
+        .about-description {
+            max-width: 800px;
+            margin: 40px auto;
+            text-align: center;
+            color: #ccc;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            padding: 20px;
+            background: rgba(20, 20, 20, 0.6);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 100, 100, 0.2);
+        }
+
+        .warning-text {
+            color: #ff4444;
+            font-weight: bold;
+            animation: blink 1.5s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0.3; }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-elements">
+        <div class="floating-skull">💀</div>
+        <div class="floating-skull">👻</div>
+        <div class="floating-skull">🕷️</div>
+        <div class="floating-skull">🦇</div>
+    </div>
+
+    <button class="back-button" onclick="location.href='index.html'">← Back to Predictor</button>
+
+    <div class="about-container">
+        <h1 class="about-title glitch-text">ABOUT THE CREATOR</h1>
+        
+        <div class="about-description">
+            <p>Welcome to the dark side of future prediction. This twisted creation was born from the mind of a computer engineering student who dared to glimpse into the unknown realms of tomorrow.</p>
+            <p class="warning-text">⚠️ The creator cannot be held responsible for any psychological damage caused by accurate predictions ⚠️</p>
+        </div>
+
+        <div class="creator-card">
+            <!-- Avatar -->
+            <div class="avatar">👨‍💻</div>
+            
+            <!-- Name -->
+            <h2 class="creator-name">Yash Vijay Date</h2>
+            
+            <!-- Role -->
+            <p class="creator-role">Computer Engineering Student</p>
+            
+            <!-- Contact Info Container -->
+            <div class="contact-info">
+                <!-- Email -->
+                <div class="contact-item">
+                    <svg class="contact-icon" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                        <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                    </svg>
+                    <a href="mailto:yashdate01@gmail.com" class="contact-link">yashdate01@gmail.com</a>
+                </div>
+                
+                <!-- Branch -->
+                <div class="contact-item">
+                    <svg class="contact-icon" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+                        <path d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z"></path>
+                    </svg>
+                    <span class="contact-link">Computer Engineering</span>
+                </div>
+                
+                <!-- Portfolio -->
+                <div class="contact-item">
+                    <svg class="contact-icon" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="contact-link">Future Predictor</span>
+                </div>
+
+                <!-- GitHub -->
+                <div class="contact-item">
+                    <svg class="contact-icon" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clip-rule="evenodd"></path>
+                    </svg>
+                    <a href="https://github.com/YashDate31" class="contact-link" target="_blank">GitHub Profile</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="horror-quotes">
+            <div class="horror-quote">"The future is not set in stone, but written in blood..."</div>
+            <div class="horror-quote">"Every prediction comes with a price..."</div>
+            <div class="horror-quote">"Some futures are better left unknown..."</div>
+        </div>
+
+        <div class="about-description">
+            <h3 style="color: #ff4444; margin-bottom: 20px;">⚡ Project Features ⚡</h3>
+            <p>🔮 Personalized horror-themed future predictions</p>
+            <p>👻 Atmospheric dark UI with glitch effects</p>
+            <p>💀 Dynamic content based on user input</p>
+            <p>🌟 Responsive design for all devices</p>
+            <p>🎭 Entertainment-focused with disclaimers</p>
+            <br>
+            <p class="warning-text">Remember: This is purely for entertainment. The future is yours to create!</p>
+        </div>
+    </div>
+
+    <script>
+        // Add some interactive horror effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Random glitch effect on title
+            const title = document.querySelector('.about-title');
+            setInterval(() => {
+                if (Math.random() < 0.1) {
+                    title.style.textShadow = '2px 2px #ff4444, -2px -2px #4444ff';
+                    setTimeout(() => {
+                        title.style.textShadow = '0 0 20px rgba(255, 68, 68, 0.5)';
+                    }, 100);
+                }
+            }, 2000);
+
+            // Floating elements movement
+            const floatingElements = document.querySelectorAll('.floating-skull');
+            floatingElements.forEach((element, index) => {
+                setInterval(() => {
+                    const x = Math.random() * 20 - 10;
+                    const y = Math.random() * 20 - 10;
+                    element.style.transform = `translate(${x}px, ${y}px)`;
+                }, 3000 + index * 500);
+            });
+
+            // Spooky cursor trail effect
+            document.addEventListener('mousemove', function(e) {
+                if (Math.random() < 0.05) {
+                    const trail = document.createElement('div');
+                    trail.innerHTML = '💀';
+                    trail.style.position = 'fixed';
+                    trail.style.left = e.clientX + 'px';
+                    trail.style.top = e.clientY + 'px';
+                    trail.style.pointerEvents = 'none';
+                    trail.style.fontSize = '12px';
+                    trail.style.color = 'rgba(255, 68, 68, 0.5)';
+                    trail.style.zIndex = '1000';
+                    trail.style.animation = 'fadeOut 1s ease-out forwards';
+                    document.body.appendChild(trail);
+                    
+                    setTimeout(() => {
+                        trail.remove();
+                    }, 1000);
+                }
+            });
+        });
+
+        // Add fadeOut animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeOut {
+                0% { opacity: 1; transform: scale(1); }
+                100% { opacity: 0; transform: scale(0.5) translateY(-20px); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
